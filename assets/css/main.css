@@ -1,0 +1,760 @@
+/* ==========================================================================
+   ufuk.dev — plain CSS, no build step.
+   Sections: tokens · base · chrome · home · listing · article · syntax
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Design tokens. Everything themable lives here; components only use var(--*).
+   -------------------------------------------------------------------------- */
+
+:root {
+  --bg: #fdfcfa;
+  --bg-raised: #f5f3ee;
+  --text: #1b1b19;
+  --text-muted: #6b675e;
+  --accent: #c7273b;
+  --accent-soft: rgba(199, 39, 59, 0.08);
+  --border: #e7e3d9;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #171512;
+  --bg-raised: #211e1a;
+  --text: #eae7e0;
+  --text-muted: #9c988d;
+  --accent: #ff6b74;
+  --accent-soft: rgba(255, 107, 116, 0.1);
+  --border: #2c2925;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: var(--text);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+main p a,
+main li a {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+main p a:hover,
+main li a:hover {
+  color: var(--accent);
+}
+
+/* Syntax-flavored roles used by the def/end chrome */
+.kw {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Chrome: site header, navigation, and footer
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  padding: 2rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-title .tilde {
+  color: var(--accent);
+}
+
+.site-title .cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: blink 1.2s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-title .cursor {
+    animation: none;
+  }
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.35rem;
+  align-items: center;
+}
+
+.site-nav a {
+  font-family: var(--font-mono);
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.site-nav a::before {
+  content: "./";
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--text);
+}
+
+.site-nav a:hover::before,
+.site-nav a.active::before {
+  opacity: 1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2.5rem 0 3.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer .socials {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer .socials a {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.site-footer .socials a:hover {
+  color: var(--accent);
+}
+
+.site-footer .footer-note {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   Home: $ whoami hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  padding: 3rem 0 1rem;
+}
+
+.hero .prompt {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero .prompt .dollar {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero .hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero .tagline {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+/* A line break moves the arrow together with its role, so wrapped
+   lines read as a continuation of the pipeline. */
+.hero .tagline .hop {
+  white-space: nowrap;
+  display: inline-block;
+  margin-right: 0.55rem;
+}
+
+.hero .tagline .arrow {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero .tagline .current {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero .avatar {
+  width: 8.5rem;
+  height: 8.5rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  transition: border-color 0.15s ease;
+}
+
+.hero .avatar:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 40rem) {
+  .hero .hero-head {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .hero .avatar {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+}
+
+.hero .hero-content p {
+  margin-bottom: 1.1rem;
+}
+
+.hero .hero-content > p:first-child {
+  font-size: 1.15rem;
+}
+
+/* --------------------------------------------------------------------------
+   Listing: def…end section blocks and the listings inside them
+   (home sections, talks, podcasts, posts index, archive)
+   -------------------------------------------------------------------------- */
+
+.def-block {
+  padding: 2.75rem 0 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-head h2 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.section-head h2 .kw {
+  margin-right: 0.5em;
+}
+
+.section-head .section-link {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.section-head .section-link:hover {
+  color: var(--accent);
+}
+
+.section-body {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+}
+
+.section-end {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 1.25rem;
+}
+
+/* Compact title + date lists (home, posts index) */
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.125rem;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.post-list a:hover {
+  color: var(--accent);
+}
+
+.post-list time,
+.post-list .meta {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.post-list .excerpt {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-top: 0.35rem;
+}
+
+/* Card entries (talks, podcasts) */
+
+.entry {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 1.5rem;
+  transition: border-color 0.15s ease;
+}
+
+.entry:hover {
+  border-color: var(--text-muted);
+}
+
+/* Entry navigated to via an anchor link (e.g. from the home page) */
+.entry:target {
+  border-color: var(--accent);
+}
+
+.entry .entry-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.entry .entry-title a {
+  text-decoration: none;
+}
+
+.entry .entry-title a:hover {
+  color: var(--accent);
+}
+
+.entry .entry-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0.3rem 0 0;
+}
+
+.entry .entry-content {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.entry .entry-content p {
+  margin-bottom: 0.75rem;
+}
+
+.entry .entry-content p:last-child {
+  margin-bottom: 0;
+}
+
+.entry .entry-links {
+  margin-top: 0.75rem;
+}
+
+.entry .entry-links a {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.entry .entry-links a::before {
+  content: "[";
+  color: var(--accent);
+}
+
+.entry .entry-links a::after {
+  content: "]";
+  color: var(--accent);
+}
+
+.entry .entry-links a:hover {
+  color: var(--accent);
+}
+
+/* Collapsed abstracts / show notes inside entry cards */
+
+.entry-abstract {
+  margin-top: 0.75rem;
+}
+
+.entry-abstract summary {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  list-style: none;
+  display: inline-block;
+}
+
+.entry-abstract summary::-webkit-details-marker {
+  display: none;
+}
+
+.entry-abstract summary::before {
+  content: "[";
+  color: var(--accent);
+}
+
+.entry-abstract summary::after {
+  content: " +]";
+  color: var(--accent);
+}
+
+.entry-abstract[open] summary::after {
+  content: " -]";
+}
+
+.entry-abstract summary:hover {
+  color: var(--accent);
+}
+
+.entry-abstract .entry-content {
+  margin-top: 0.6rem;
+}
+
+/* Year / month group markers (talks, podcasts, archive) */
+
+.list-marker {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.list-marker::before {
+  content: "# ";
+  color: var(--accent);
+}
+
+.list-marker:first-child {
+  margin-top: 0;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.pagination a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  color: var(--accent);
+}
+
+.pagination span {
+  color: var(--text-muted);
+}
+
+.pagination span.current {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Article: single post / page prose
+   -------------------------------------------------------------------------- */
+
+.post {
+  padding: 3rem 0 1rem;
+}
+
+.post .post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post .post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.post .post-title {
+  font-size: clamp(1.875rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote,
+.post-content .highlight,
+.post-content table,
+.post-content figure {
+  margin-bottom: 1.25rem;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin: 2.25rem 0 0.9rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.post-content h2 { font-size: 1.5rem; }
+.post-content h3 { font-size: 1.2rem; }
+.post-content h4 { font-size: 1.0625rem; }
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.35rem;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+.post-content table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+}
+
+.post-content th,
+.post-content td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.post-content th {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  background: var(--bg-raised);
+}
+
+/* Code: inline chips adapt to the theme; block code stays monokai-dark in
+   both modes (see the syntax section below). */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-raised);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+.highlight pre {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.highlight code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #f8f8f2;
+}
+
+/* --------------------------------------------------------------------------
+   Syntax highlighting (Rouge, monokai palette; dark in both themes)
+   -------------------------------------------------------------------------- */
+
+.highlight pre { background-color: #272822; }
+.highlight .hll { background-color: #272822; }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #960050; background-color: #1e0010 } /* Error */
+.highlight .k { color: #66d9ef } /* Keyword */
+.highlight .l { color: #ae81ff } /* Literal */
+.highlight .n { color: #f8f8f2 } /* Name */
+.highlight .o { color: #f92672 } /* Operator */
+.highlight .p { color: #f8f8f2 } /* Punctuation */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .kc { color: #66d9ef } /* Keyword.Constant */
+.highlight .kd { color: #66d9ef } /* Keyword.Declaration */
+.highlight .kn { color: #f92672 } /* Keyword.Namespace */
+.highlight .kp { color: #66d9ef } /* Keyword.Pseudo */
+.highlight .kr { color: #66d9ef } /* Keyword.Reserved */
+.highlight .kt { color: #66d9ef } /* Keyword.Type */
+.highlight .ld { color: #e6db74 } /* Literal.Date */
+.highlight .m { color: #ae81ff } /* Literal.Number */
+.highlight .s { color: #e6db74 } /* Literal.String */
+.highlight .na { color: #a6e22e } /* Name.Attribute */
+.highlight .nb { color: #f8f8f2 } /* Name.Builtin */
+.highlight .nc { color: #a6e22e } /* Name.Class */
+.highlight .no { color: #66d9ef } /* Name.Constant */
+.highlight .nd { color: #a6e22e } /* Name.Decorator */
+.highlight .ni { color: #f8f8f2 } /* Name.Entity */
+.highlight .ne { color: #a6e22e } /* Name.Exception */
+.highlight .nf { color: #a6e22e } /* Name.Function */
+.highlight .nl { color: #f8f8f2 } /* Name.Label */
+.highlight .nn { color: #f8f8f2 } /* Name.Namespace */
+.highlight .nx { color: #a6e22e } /* Name.Other */
+.highlight .py { color: #f8f8f2 } /* Name.Property */
+.highlight .nt { color: #f92672 } /* Name.Tag */
+.highlight .nv { color: #f8f8f2 } /* Name.Variable */
+.highlight .ow { color: #f92672 } /* Operator.Word */
+.highlight .w { color: #f8f8f2 } /* Text.Whitespace */
+.highlight .mf { color: #ae81ff } /* Literal.Number.Float */
+.highlight .mh { color: #ae81ff } /* Literal.Number.Hex */
+.highlight .mi { color: #ae81ff } /* Literal.Number.Integer */
+.highlight .mo { color: #ae81ff } /* Literal.Number.Oct */
+.highlight .sb { color: #e6db74 } /* Literal.String.Backtick */
+.highlight .sc { color: #e6db74 } /* Literal.String.Char */
+.highlight .sd { color: #e6db74 } /* Literal.String.Doc */
+.highlight .s2 { color: #e6db74 } /* Literal.String.Double */
+.highlight .se { color: #ae81ff } /* Literal.String.Escape */
+.highlight .sh { color: #e6db74 } /* Literal.String.Heredoc */
+.highlight .si { color: #e6db74 } /* Literal.String.Interpol */
+.highlight .sx { color: #e6db74 } /* Literal.String.Other */
+.highlight .sr { color: #e6db74 } /* Literal.String.Regex */
+.highlight .s1 { color: #e6db74 } /* Literal.String.Single */
+.highlight .ss { color: #e6db74 } /* Literal.String.Symbol */
+.highlight .bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #f8f8f2 } /* Name.Variable.Class */
+.highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
+.highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
+.highlight .gu { color: #75715e; } /* Generic.Subheading & Diff Unified/Comment */
+.highlight .gd { color: #f92672; } /* Generic.Deleted & Diff Deleted */
+.highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */

@@ -14,3 +14,8 @@ end
 
 gem "webrick"
 gem "nokogiri"
+
+group :development do
+  # Drives headless Chrome for the `rake og_image` task
+  gem "ferrum"
+end

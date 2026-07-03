@@ -1,9 +1,6 @@
-<nav class="scroll">
+<nav class="site-nav">
   {% for item in site.navigation %}
-    {% assign class = nil %}
-    {% if page.url == item.url %}
-        {% assign class = 'active' %}
-    {% endif %}
-    <a href="{{ item.url }}" class="{{ class }}">{{ item.title }}</a>
+    <a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title | downcase }}</a>
   {% endfor %}
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◑</button>
 </nav>

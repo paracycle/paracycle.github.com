@@ -1,33 +1,66 @@
-# Gradfolio
+# ufuk.dev
 
-responsive, dark-mode ready Jekyll theme designed for use as a personal website and portfolio. [Here's a live demo](https://jitinnair1.github.io/gradfolio/)
+Personal site of Ufuk Kayserilioglu — built with [Jekyll](https://jekyllrb.com)
+and a custom terminal-flavored editorial theme. Live at
+[ufuk.dev](https://ufuk.dev).
 
-## Features
-- Responsive
-- Respects Dark Mode preference set by user
-- Projects Page to showcase your work/side projects
-- Easily link to your profiles on ResearchGate and ORCID
+## Development
 
-## Installation
-* Click on `Use this template`
-* Your new site should be ready at https://username.github.io/gradfolio/
-* You can now modify the contents and personalise the template
+```sh
+bundle install
+bundle exec jekyll serve   # http://127.0.0.1:4000
+```
 
-Alternatively, you can [download the source files](https://github.com/jitinnair1/gradfolio/archive/master.zip) and make changes locally. 
+Note: `_config.yml` changes require a server restart; Jekyll only reads the
+config at boot.
 
-To test these changes, open a terminal inside the source folder and use `jekyll serve --incremental --trace` to make it available on a local server (typically http://localhost:4000/)
+## Content
 
-The `--incremental` flag ensures that any changes you make are reflected in your browser in real time and the `--trace` option might be useful for debugging if things break while you are changing the source files.
+| What | Where |
+|---|---|
+| Home page bio | `index.md` |
+| Talks | `_talks/*.md` (`title`, `event`, `date`, `video`, `slides`, `site`) |
+| Podcast appearances | `_podcasts/*.md` (`title`, `podcast`, `episode`, `date`, `link`, `video`) |
+| Blog posts | `_posts/` (standard Jekyll posts) |
+| Identity (name, role, tagline, avatar, domain, socials) | `_config.yml` |
 
-Once you have personalised and tested the site, you can create a new repo, upload these files and host your website from the repo.
+Talks and podcasts render as year-grouped cards with collapsed
+abstracts/show notes; each card gets a slug anchor (`/talks/#talk-title`)
+that the home page deep-links to.
 
-## Based on
-- [hagura](https://github.com/sharu725/hagura)
-- [al-folio](https://github.com/alshedivat/al-folio)
-- [noir](https://github.com/essentialenemy/noir)
-- [jekyll-TeXt-theme](https://github.com/kitian616/jekyll-TeXt-theme)
+## Theme
+
+The stylesheet is plain CSS — no preprocessor, no build step:
+`assets/css/main.css` is served as-is. All design tokens (colors, fonts,
+light/dark palettes) live in the tokens section at the top as CSS custom
+properties; components only use `var(--*)`. Light/dark mode follows
+`prefers-color-scheme`, can be toggled from the header, and persists via
+`localStorage`.
+
+Sections: tokens · base · chrome (header/nav/footer) · home (hero) ·
+listing (def…end blocks, cards) · article (post prose) · syntax
+(code highlighting).
+
+## Open Graph image
+
+The social card (`assets/images/og-image.png`) is generated from
+`_og/template.html.erb`, populated with values from `_config.yml`:
+
+```sh
+bundle exec rake og_image
+```
+
+Rendering uses [Ferrum](https://github.com/rubycdp/ferrum) driving headless
+Chrome (set `CHROME_BIN` to point at a specific binary). Rerun after changing
+`domain`, `title`, `tagline`, `description`, `avatar`, or `navigation`, and
+commit the regenerated PNG.
+
+## Deployment
+
+Pushes to `main` build and deploy to GitHub Pages via
+`.github/workflows/jekyll.yml` (publishes `_site/` to the `gh-pages` branch;
+`CNAME` points the ufuk.dev domain at it).
 
 ## License
-MIT License
 
-[![JekyllThemes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com)
+MIT — see [LICENSE](LICENSE).

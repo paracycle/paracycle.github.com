@@ -1,94 +1,20 @@
-<div class="rounded-social-buttons">
-
-{%- if site.social.email -%}
-<a
-  rel="me"
-  title="{{ _locale_string_email }}"
-  class="social-button email"
-  href="mailto:{{ site.social.email | encode_email }}"
-  itemprop="email"
-  target="_blank"
->
-  <i class="fas fa-envelope"></i>
-</a>
-{%- endif -%}
-
-{%- if site.social.bluesky -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'Bluesky' }}"
-  class="social-button bluesky"
-  href="https://bsky.app/profile/{{ site.social.bluesky }}"
-  itemprop="sameAs"
-  target="_blank"
->
-  <i class="fab fa-bluesky"></i>
-</a>
-{%- endif -%}
-
-{%- if site.social.mastodon -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'Mastodon' }}"
-  class="social-button mastodon"
-  href="https://{{ site.social.mastodon }}"
-  itemprop="sameAs"
-  target="_blank"
->
-  <i class="fab fa-mastodon"></i>
-</a>
-{%- endif -%}
-
-{%- if site.social.twitter -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'Twitter' }}"
-  class="social-button twitter"
-  href="https://www.twitter.com/{{ site.social.twitter }}"
-  itemprop="sameAs"
-  target="_blank"
->
-  <i class="fab fa-twitter"></i>
-</a>
-{%- endif -%}
-
+<div class="socials">
 {%- if site.social.github -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'GitHub' }}"
-  class="social-button github"
-  href="https://www.github.com/{{ site.social.github }}"
-  itemprop="sameAs"
-  target="_blank"
->
-  <i class="fab fa-github"></i>
-</a>
+<a rel="me" href="https://github.com/{{ site.social.github }}" itemprop="sameAs" target="_blank">github</a>
 {%- endif -%}
-
+{%- if site.social.mastodon -%}
+<a rel="me" href="https://{{ site.social.mastodon }}" itemprop="sameAs" target="_blank">mastodon</a>
+{%- endif -%}
+{%- if site.social.bluesky -%}
+<a rel="me" href="https://bsky.app/profile/{{ site.social.bluesky }}" itemprop="sameAs" target="_blank">bluesky</a>
+{%- endif -%}
+{%- if site.social.twitter -%}
+<a rel="me" href="https://www.twitter.com/{{ site.social.twitter }}" itemprop="sameAs" target="_blank">twitter</a>
+{%- endif -%}
 {%- if site.social.linkedin -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'LinkedIn' }}"
-  class="social-button linkedin"
-  href="https://www.linkedin.com/in/{{ site.social.linkedin }}"
-  itemprop="sameAs"
-  target="_blank"
->
-<i class="fab fa-linkedin"></i>
-</a>
+<a rel="me" href="https://www.linkedin.com/in/{{ site.social.linkedin }}" itemprop="sameAs" target="_blank">linkedin</a>
 {%- endif -%}
-
-{%- if site.social.facebook -%}
-<a
-  rel="me"
-  title="{{ _locale_string_follow | replace: '[NAME]', 'Facebook' }}"
-  class="social-button facebook"
-  href="https://www.facebook.com/{{ site.social.facebook }}"
-  itemprop="sameAs"
-  target="_blank"
->
-  <i class="fab fa-facebook-f"></i>
-</a>
+{%- if site.social.email -%}
+<a rel="me" href="mailto:{{ site.social.email | encode_email }}" itemprop="email">email</a>
 {%- endif -%}
-
 </div>

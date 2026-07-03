@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ufuk Kayserilioglu — Option 1: Terminal</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-raised: #161b22;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --accent: #3fb950;
+    --accent-dim: rgba(63, 185, 80, 0.15);
+    --border: #21262d;
+    --link: #58a6ff;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --font-body: var(--font-mono);
+  }
+  [data-theme="light"] {
+    --bg: #fafaf7;
+    --bg-raised: #f0f0ec;
+    --text: #24292f;
+    --text-muted: #57606a;
+    --accent: #1a7f37;
+    --accent-dim: rgba(26, 127, 55, 0.1);
+    --border: #d8d8d3;
+    --link: #0969da;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .container {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  /* ── Header ─────────────────────────── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .site-title {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .site-title .tilde { color: var(--accent); }
+  .site-title .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.1em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1.2s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  nav { display: flex; gap: 1.25rem; align-items: center; }
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  nav a::before { content: "./"; color: var(--accent); opacity: 0; transition: opacity 0.15s; }
+  nav a:hover::before, nav a.active::before { opacity: 1; }
+  nav a:hover, nav a.active { color: var(--text); }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
+
+  /* ── Hero ───────────────────────────── */
+  .hero { padding: 4rem 0 3rem; }
+  .hero .comment { color: var(--text-muted); }
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0.5rem 0 1.5rem;
+    font-weight: 700;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero p { margin-bottom: 1rem; max-width: 40rem; }
+  .hero p a, main a { color: var(--link); text-decoration: none; }
+  .hero p a:hover, main a:hover { text-decoration: underline; }
+
+  .prompt-line { color: var(--text-muted); margin-bottom: 0.25rem; font-size: 0.9rem; }
+  .prompt-line .dollar { color: var(--accent); }
+
+  /* ── Sections ───────────────────────── */
+  section { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  h2::before { content: "## "; color: var(--accent); }
+
+  .post-list { list-style: none; }
+  .post-list li {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0.55rem 0;
+    align-items: baseline;
+  }
+  .post-list time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    width: 6.5rem;
+  }
+  .post-list a { color: var(--text); text-decoration: none; }
+  .post-list a:hover { color: var(--link); }
+
+  .more-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--text-muted) !important;
+    font-size: 0.9rem;
+  }
+  .more-link::after { content: " →"; }
+
+  /* ── Cards (talks) ─────────────────── */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 40rem) { .card-grid { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    background: var(--bg-raised);
+  }
+  .card .meta { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.4rem; }
+  .card h3 { font-size: 0.95rem; font-weight: 600; }
+  .card h3 a { color: var(--text) !important; }
+  .card:hover { border-color: var(--accent); }
+
+  /* ── Footer ─────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 3rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .socials { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .socials a { color: var(--text-muted); text-decoration: none; }
+  .socials a:hover { color: var(--accent); }
+  .footer-note .heart { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+    <nav>
+      <a href="/" class="active">home</a>
+      <a href="/talks/">talks</a>
+      <a href="/podcasts/">podcasts</a>
+      <a href="/posts/">posts</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero" style="border-top: none;">
+      <p class="prompt-line"><span class="dollar">$</span> whoami</p>
+      <h1>Ufuk Kayserilioglu<br><span class="accent">physicist → developer → engineering manager</span></h1>
+      <p>Hi there! 👋 Nice to meet you.</p>
+      <p>I am a theoretical high energy physicist turned software developer turned engineering manager. I've been in the software industry for over 20 years and have had the opportunity to work with technologies across the full stack.</p>
+      <p>Currently, I work at <a href="https://shopify.com">Shopify</a> as the Engineering Manager of the Ruby Infrastructure Team. Since December 2023, I am also on the Board of <a href="https://rubycentral.org">Ruby Central</a>.</p>
+    </section>
+
+    <section>
+      <h2>recent-posts</h2>
+      <ul class="post-list">
+        <li><time>2024-03-12</time><a href="#">The surprising cost of method_missing in production Ruby</a></li>
+        <li><time>2024-01-28</time><a href="#">Object shapes, one year later</a></li>
+        <li><time>2023-11-05</time><a href="#">Why we invest in developer tooling at Shopify</a></li>
+        <li><time>2023-09-14</time><a href="#">Notes on managing a language infrastructure team</a></li>
+      </ul>
+      <a href="/posts/" class="more-link">all posts</a>
+    </section>
+
+    <section>
+      <h2>talks</h2>
+      <div class="card-grid">
+        <div class="card">
+          <p class="meta">RubyConf 2023 · San Diego</p>
+          <h3><a href="#">The Secret Life of Ruby Objects</a></h3>
+        </div>
+        <div class="card">
+          <p class="meta">RubyKaigi 2023 · Matsumoto</p>
+          <h3><a href="#">Adaptive Ruby: Types and Tooling</a></h3>
+        </div>
+      </div>
+      <a href="/talks/" class="more-link">all talks</a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="socials">
+      <a href="https://github.com/paracycle">github</a>
+      <a href="https://ruby.social/@ufuk">mastodon</a>
+      <a href="https://bsky.app/profile/ufuk.dev">bluesky</a>
+      <a href="https://twitter.com/paracycle">twitter</a>
+      <a href="https://linkedin.com/in/ufukkayserilioglu">linkedin</a>
+    </div>
+    <p class="footer-note">© 2026 Ufuk Kayserilioglu · built with <span class="heart">♥</span> and Jekyll</p>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const stored = localStorage.getItem("theme");
+  if (stored) root.dataset.theme = stored;
+  else if (window.matchMedia("(prefers-color-scheme: light)").matches) root.dataset.theme = "light";
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>
+</body>
+</html>

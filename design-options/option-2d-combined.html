@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ufuk Kayserilioglu — Option 2d: Combined</title>
+<style>
+  :root {
+    --bg: #fdfcfa;
+    --bg-raised: #f5f3ee;
+    --text: #1b1b19;
+    --text-muted: #6b675e;
+    --accent: #c7273b;
+    --accent-soft: rgba(199, 39, 59, 0.08);
+    --border: #e7e3d9;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #171512;
+    --bg-raised: #211e1a;
+    --text: #eae7e0;
+    --text-muted: #9c988d;
+    --accent: #ff6b74;
+    --accent-soft: rgba(255, 107, 116, 0.1);
+    --border: #2c2925;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.75;
+    font-size: 1.0625rem;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .container { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  a { color: var(--text); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  main p a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  main p a:hover { color: var(--accent); }
+
+  .kw { color: var(--accent); font-weight: 700; }
+
+  /* ── Header: terminal chrome ────────── */
+  header { padding: 2rem 0; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .site-title {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .site-title .tilde { color: var(--accent); }
+  .site-title .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1.2s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .site-title .cursor { animation: none; } }
+
+  nav { display: flex; gap: 1.35rem; align-items: center; }
+  nav a {
+    font-family: var(--font-mono);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+  nav a::before { content: "./"; color: var(--accent); opacity: 0; transition: opacity 0.15s; }
+  nav a:hover::before, nav a.active::before { opacity: 1; }
+  nav a:hover, nav a.active { color: var(--text); }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+  .theme-toggle:hover { color: var(--accent); }
+
+  /* ── Hero ───────────────────────────── */
+  .hero { padding: 5rem 0 4rem; }
+  .prompt {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .prompt .dollar { color: var(--accent); font-weight: 700; }
+  .hero h1 {
+    font-size: clamp(2.25rem, 6vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin-bottom: 1.75rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--text-muted); }
+  .hero p { margin-bottom: 1.1rem; }
+  .hero .lede { font-size: 1.15rem; }
+
+  /* ── Sections as def…end ────────────── */
+  section { padding: 2.75rem 0; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  h2 { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; }
+  h2 .kw { margin-right: 0.5em; }
+  .section-head a {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .section-head a:hover { color: var(--accent); }
+
+  .section-body { border-left: 2px solid var(--border); padding-left: 1.5rem; }
+  .section-end {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 1.25rem;
+    font-size: 1rem;
+  }
+
+  .post-list { list-style: none; }
+  .post-list li { padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+  .post-list li:last-child { border-bottom: none; }
+  .post-list a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .post-list a:hover { color: var(--accent); }
+  .post-list time, .post-list .meta {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Footer ─────────────────────────── */
+  footer { margin-top: 3rem; padding: 2.5rem 0 3.5rem; border-top: 1px solid var(--border); }
+  .socials { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .socials a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .socials a:hover { color: var(--accent); }
+  .footer-note { color: var(--text-muted); font-size: 0.875rem; font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+    <nav>
+      <a href="/" class="active">home</a>
+      <a href="/talks/">talks</a>
+      <a href="/podcasts/">podcasts</a>
+      <a href="/posts/">posts</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◑</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero">
+      <p class="prompt"><span class="dollar">$</span> whoami</p>
+      <h1>Ufuk Kayserilioglu <em>— physicist turned developer turned manager.</em></h1>
+      <p class="lede">Hi there! 👋 Nice to meet you.</p>
+      <p>I've been in the software industry for over 20 years, working with technologies across the full stack. My team at <a href="https://shopify.com">Shopify</a> works on making Ruby thrive — from <a href="https://speed.yjit.org">YJIT</a> to object shapes to developer tooling.</p>
+      <p>Since December 2023, I'm also on the Board of <a href="https://rubycentral.org">Ruby Central</a>, helping with its OSS and conference efforts.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2><span class="kw">def</span>writing</h2>
+        <a href="/posts/">all posts →</a>
+      </div>
+      <div class="section-body">
+        <ul class="post-list">
+          <li>
+            <a href="#">The surprising cost of method_missing in production Ruby</a>
+            <time>2024-03-12</time>
+          </li>
+          <li>
+            <a href="#">Object shapes, one year later</a>
+            <time>2024-01-28</time>
+          </li>
+          <li>
+            <a href="#">Why we invest in developer tooling at Shopify</a>
+            <time>2023-11-05</time>
+          </li>
+        </ul>
+      </div>
+      <p class="section-end">end</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2><span class="kw">def</span>speaking</h2>
+        <a href="/talks/">all talks →</a>
+      </div>
+      <div class="section-body">
+        <ul class="post-list">
+          <li>
+            <a href="#">The Secret Life of Ruby Objects</a>
+            <span class="meta">RubyConf 2023 · San Diego</span>
+          </li>
+          <li>
+            <a href="#">Adaptive Ruby: Types and Tooling</a>
+            <span class="meta">RubyKaigi 2023 · Matsumoto</span>
+          </li>
+        </ul>
+      </div>
+      <p class="section-end">end</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="socials">
+      <a href="https://github.com/paracycle">github</a>
+      <a href="https://ruby.social/@ufuk">mastodon</a>
+      <a href="https://bsky.app/profile/ufuk.dev">bluesky</a>
+      <a href="https://twitter.com/paracycle">twitter</a>
+      <a href="https://linkedin.com/in/ufukkayserilioglu">linkedin</a>
+    </div>
+    <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const stored = localStorage.getItem("theme");
+  if (stored) root.dataset.theme = stored;
+  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) root.dataset.theme = "dark";
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>
+</body>
+</html>

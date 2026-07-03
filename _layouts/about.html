@@ -1,15 +1,92 @@
 ---
 layout: default
 ---
-
-{% if page.profile %}
-    {% if page.profile.image or page.image %}
-      <img
-        class="profile {{ page.profile.align }}"
-        width="33.33%"
-        src="{% link {{ page.profile.image | default: page.image }} %}"
-      >
+<section class="hero">
+  <div class="hero-head">
+    <div class="hero-intro">
+      <p class="prompt"><span class="dollar">$</span> whoami</p>
+      <h1>{{ site.title }}</h1>
+      {% assign tagline = page.tagline | default: site.tagline %}
+      {% if tagline %}
+      <p class="tagline">
+        {%- assign parts = tagline | split: " → " -%}
+        {%- for part in parts -%}
+          <span class="hop">
+            {%- unless forloop.first %}<span class="arrow">→</span> {% endunless -%}
+            {%- if forloop.last %}<span class="current">{{ part }}</span>{% else %}{{ part }}{% endif -%}
+          </span>
+        {%- endfor -%}
+      </p>
+      {% endif %}
+    </div>
+    {% assign avatar = page.avatar | default: site.avatar %}
+    {% if avatar %}
+    <img class="avatar" src="{{ avatar | prepend: site.baseurl }}" alt="Photo of {{ site.title }}" width="1072" height="1072">
     {% endif %}
+  </div>
+  <div class="hero-content">
+    {{ content }}
+  </div>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="def-block">
+  <div class="section-head">
+    <h2><span class="kw">def</span>writing</h2>
+    <a class="section-link" href="{{site.baseurl}}/posts/">all posts →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      {% for post in site.posts limit: 3 %}
+      <li>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+</section>
 {% endif %}
 
-{{ content }}
+{% if site.talks.size > 0 %}
+{% assign recent_talks = site.talks | sort: 'date' | reverse %}
+<section class="def-block">
+  <div class="section-head">
+    <h2><span class="kw">def</span>speaking</h2>
+    <a class="section-link" href="{{site.baseurl}}/talks/">all talks →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      {% for talk in recent_talks limit: 3 %}
+      <li>
+        <a href="{{site.baseurl}}/talks/#{{ talk.title | slugify }}">{{ talk.title }}</a>
+        <span class="meta">{{ talk.event }} · {{ talk.date | date: '%B %Y' }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+</section>
+{% endif %}
+
+{% if site.podcasts.size > 0 %}
+{% assign recent_podcasts = site.podcasts | sort: 'date' | reverse %}
+<section class="def-block">
+  <div class="section-head">
+    <h2><span class="kw">def</span>podcasts</h2>
+    <a class="section-link" href="{{site.baseurl}}/podcasts/">all podcasts →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      {% for podcast in recent_podcasts limit: 3 %}
+      <li>
+        <a href="{{site.baseurl}}/podcasts/#{{ podcast.title | slugify }}">{{ podcast.title }}</a>
+        <span class="meta">{{ podcast.podcast }} · {{ podcast.date | date: '%B %Y' }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+</section>
+{% endif %}
