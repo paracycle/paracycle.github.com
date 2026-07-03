@@ -1,14 +1,21 @@
 baseurl: ""
 
 title: "Ufuk Kayserilioglu"
-description: "Engineering Manager - Ruby Infrastructure Team at Shopify"
+description: "Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify"
+# Rendered as a career pipeline; segments are separated by " → "
+tagline: "physicist → developer → manager → developer again"
+avatar: /assets/images/avatar.jpg
 url: "https://ufuk.dev"
+# Bare domain for display (header, OG image); unlike `url`, this is not
+# overridden by `jekyll serve` in development. (Named `domain` because
+# `host` is a reserved Jekyll key: the serve bind address.)
+domain: "ufuk.dev"
 email: ufuk@paralaus.com
 
 # SEO
 twitter:
   username: paracycle
-  card: summary
+  card: summary_large_image
 
 social:
   name: Ufuk Kayserilioglu
@@ -35,25 +42,13 @@ social:
   mastodon: "ruby.social/@ufuk"
   bluesky: "ufuk.dev"
 
-# Tracker
-analytics:
-
-#optimization -> compress.html
-compress_html:
-  clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
-  comments: ["<!-- ", " -->"]
-  endings: [all]
-  ignore:
-    envs: [local]
-  blanklines: false
-  profile: false
-  startings: []
+# Tracker: HTML injected verbatim at the end of <body>; leave empty to disable
+analytics: |
+  <!-- Self-hosted Plausible Analytics code -->
+  <script defer src="https://analytics.paralaus.com/script.js" data-website-id="fcef8857-4847-4250-ae64-596e0afc3a2f"></script>
 
 #collection
 collections:
-  projects:
-    output: true
-    permalink: /projects/:path/
   talks:
     output: false
     permalink: /talks/:path/
@@ -72,6 +67,7 @@ include:
 exclude:
   - README.md
   - LICENSE.md
+  - design-options
 
 navigation:
   - title: Home
@@ -90,6 +86,12 @@ defaults:
       path: "assets/images"
     values:
       image: true
+  # Site-wide Open Graph / Twitter card image; pages and posts can
+  # override it with their own `image:` front matter.
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-image.png
 
 plugins:
   - jekyll-seo-tag

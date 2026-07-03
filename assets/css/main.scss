@@ -4,29 +4,14 @@
 
 @charset "utf-8";
 
-// Width of the content area
-$content-width:    800px;
-$on-phone:         450px;
-$on-palm:          660px;
-$on-laptop:        1000px;
-
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-// Do not make any changes to this file. Go to /_sass and find the appropriate SCSS file and make changes there.
+// Import partials from the configured sass_dir (/assets/css/_sass).
+// Design tokens live in theme.scss; components only use var(--*).
 @import
-        "variables",
-        "monokai",
-        "footer-social",
-        "projects",
-        "talks",
-        "profile",
-        "navigation",
-        "footer",
-        "style",
-        "google-fonts"
+        "theme",
+        "base",
+        "chrome",
+        "home",
+        "listing",
+        "article",
+        "monokai"
 ;
