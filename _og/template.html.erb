@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  Template for the site-wide Open Graph image (assets/images/og-image.png).
+  Values come from _config.yml; regenerate with:  rake og_image
+-->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #171512;
+    --bg-raised: #211e1a;
+    --text: #eae7e0;
+    --text-muted: #9c988d;
+    --accent: #ff6b74;
+    --border: #2c2925;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 72px 52px;
+    overflow: hidden;
+  }
+
+  .accent { color: var(--accent); }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-title {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .site-title .cursor {
+    display: inline-block;
+    width: 17px;
+    height: 32px;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 4px;
+  }
+
+  .top-links {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .top-links > span { margin-left: 28px; }
+
+  .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+  }
+
+  .whoami {
+    font-family: var(--font-mono);
+    font-size: 30px;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-size: 84px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+    margin-bottom: 20px;
+  }
+
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .tagline .hop {
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 14px;
+  }
+
+  .tagline .current {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .avatar {
+    width: 264px;
+    height: 264px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 24px;
+    border: 2px solid var(--border);
+  }
+
+  .bottom {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="site-title"><span class="accent">~</span>/<%= host %><span class="cursor"></span></div>
+    <div class="top-links">
+      <% nav_links.each do |link| %>
+      <span><span class="accent">[</span><%= link %><span class="accent">]</span></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="middle">
+    <div>
+      <p class="whoami"><span class="accent">$</span> whoami</p>
+      <h1><%= name_lines.join("<br>") %></h1>
+      <p class="tagline"><%- tagline_parts.each_with_index do |part, i| -%><span class="hop"><%- if i > 0 %><span class="accent">→</span> <% end -%><% if i == tagline_parts.size - 1 %><span class="current"><%= part %></span><% else %><%= part %><% end -%></span><%- end %></p>
+    </div>
+    <img class="avatar" src="<%= avatar %>" alt="">
+  </div>
+
+  <div class="bottom">
+    <span class="accent">#</span> <%= footer %>
+  </div>
+</body>
+</html>
