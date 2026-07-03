@@ -18,16 +18,7 @@ GEM
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
       websocket-driver (~> 0.7)
-    ffi (1.17.2)
-    ffi (1.17.2-aarch64-linux)
-    ffi (1.17.2-aarch64-linux-gnu)
-    ffi (1.17.2-arm-linux)
-    ffi (1.17.2-arm-linux-gnu)
-    ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86-linux)
-    ffi (1.17.2-x86-linux-gnu)
-    ffi (1.17.2-x86_64-linux)
-    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.4)
     forwardable-extended (2.6.0)
     google-protobuf (4.32.1)
       bigdecimal
@@ -106,6 +97,7 @@ PLATFORMS
   darwin
   linux
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   ferrum
