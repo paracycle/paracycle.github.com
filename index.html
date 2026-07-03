@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- Set the theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -11,19 +21,19 @@
 <meta name="generator" content="Jekyll v4.4.1">
 <meta property="og:title" content="Home">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
-<meta property="og:description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
+<meta name="description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
+<meta property="og:description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
 <link rel="canonical" href="https://ufuk.dev/">
 <meta property="og:url" content="https://ufuk.dev/">
 <meta property="og:site_name" content="Ufuk Kayserilioglu">
-<meta property="og:image" content="https://ufuk.dev/assets/images/avatar.jpg">
+<meta property="og:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta property="twitter:image" content="https://ufuk.dev/assets/images/avatar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="twitter:title" content="Home">
 <meta name="twitter:site" content="@paracycle">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Engineering Manager - Ruby Infrastructure Team at Shopify","headline":"Home","image":"https://ufuk.dev/assets/images/avatar.jpg","name":"Ufuk Kayserilioglu","url":"https://ufuk.dev/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify","headline":"Home","image":"https://ufuk.dev/assets/images/og-image.png","name":"Ufuk Kayserilioglu","url":"https://ufuk.dev/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -33,89 +43,144 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-
-  <!-- MathJax -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     processEscapes: true
-    }
-  });
-</script>
-
-
-  <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
-  <script src="https://kit.fontawesome.com/e96714f58f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="">
-  <h1 class="post-headline">Ufuk Kayserilioglu</h1>
-  <h3 class="post-description">Engineering Manager - Ruby Infrastructure Team at Shopify</h3>
-
-  <nav class="scroll">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+      <nav class="site-nav">
   
-    
-    
-    <a href="/" class="active">Home</a>
+    <a href="/" class="active">home</a>
   
-    
-    
-    <a href="/talks/" class="">Talks</a>
+    <a href="/talks/">talks</a>
   
-    
-    
-    <a href="/podcasts/" class="">Podcasts</a>
+    <a href="/podcasts/">podcasts</a>
   
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◑</button>
 </nav>
 
+    </div>
+  </header>
 
   <main>
+    <div class="container">
+      <section class="hero">
+  <div class="hero-head">
+    <div class="hero-intro">
+      <p class="prompt"><span class="dollar">$</span> whoami</p>
+      <h1>Ufuk Kayserilioglu</h1>
+      
+      
+      <p class="tagline"><span class="hop">physicist</span><span class="hop"><span class="arrow">→</span> developer</span><span class="hop"><span class="arrow">→</span> manager</span><span class="hop"><span class="arrow">→</span> <span class="current">developer again</span></span></p>
+      
+    </div>
     
     
-      <img class="profile right" width="33.33%" src="/assets/images/avatar.jpg">
+    <img class="avatar" src="/assets/images/avatar.jpg" alt="Photo of Ufuk Kayserilioglu" width="1072" height="1072">
     
+  </div>
+  <div class="hero-content">
+    <p>Hi there! 👋 Nice to meet you.</p>
+
+<p>I am a theoretical high energy physicist turned software developer turned engineering manager — and, as of 2026, a developer again. I’ve been in the software industry for over 20 years and have had the opportunity to work with technologies across the full stack.</p>
+
+<p>Currently, I work at <a href="https://shopify.com" rel="external nofollow noopener" target="_blank">Shopify</a> as a Senior Staff Engineer on the Ruby and Rails Infrastructure team, where I focus on hands-on technical work across our Ruby and Rails tooling and infrastructure.</p>
+
+<p>Before that, I was the Engineering Manager of the Ruby Infrastructure team — the team responsible for ensuring that the Ruby language and tooling around it continues to thrive and develop for years to come. Among other things, we worked on building <a href="https://speed.yjit.org" rel="external nofollow noopener" target="_blank">a high-performance JIT compiler inside CRuby</a>, optimizing <a href="https://rubykaigi.org/2021-takeout/presentations/peterzhu2118.html" rel="external nofollow noopener" target="_blank">the memory layout of CRuby objects for better performance</a>, and implementing <a href="https://rubykaigi.org/2021-takeout/presentations/chrisgseaton.html" rel="external nofollow noopener" target="_blank">object shapes for simpler and faster ivar access</a>.</p>
+
+<p>From December 2023 to January 2026, I served on the Board of <a href="https://rubycentral.org" rel="external nofollow noopener" target="_blank">Ruby Central</a>, helping the organization with its OSS and conference efforts.</p>
+
+  </div>
+</section>
 
 
-<p>Hi there! 👋 Nice to meet you.</p>
-
-<p>I am a theoretical high energy physicist turned software developer turned engineering manager. I’ve been in the software industry for over 20 years and have had the opportunity to work with technologies across the full stack.</p>
-
-<p>Currently, I work at <a href="https://shopify.com" rel="external nofollow noopener" target="_blank">Shopify</a> as the Engineering Manager of the Ruby Infrastructure Team.</p>
-
-<p>Our team is responsible for ensuring that the Ruby language and tooling around it continues to thrive and develop for years to come. For that purpose, we work on making improvements to the Ruby language such as building <a href="https://speed.yjit.org" rel="external nofollow noopener" target="_blank">a high-performance JIT compiler inside CRuby</a>, optimizing <a href="https://rubykaigi.org/2021-takeout/presentations/peterzhu2118.html" rel="external nofollow noopener" target="_blank">the memory layout of CRuby objects for better performance</a>, and implementing <a href="https://rubykaigi.org/2021-takeout/presentations/chrisgseaton.html" rel="external nofollow noopener" target="_blank">object shapes for simpler and faster ivar access</a>.</p>
-
-<p>Since December 2023, I am also on the Board of <a href="https://rubycentral.org" rel="external nofollow noopener" target="_blank">Ruby Central</a> helping the organization with its OSS and conference efforts.</p>
 
 
+
+<section class="def-block">
+  <div class="section-head">
+    <h2>
+<span class="kw">def</span>speaking</h2>
+    <a class="section-link" href="/talks/">all talks →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      
+      <li>
+        <a href="/talks/#gradual-typing-in-ruby-a-three-year-retrospective">Gradual Typing In Ruby - A Three Year Retrospective</a>
+        <span class="meta">RubyConf 2021 · November 2021</span>
+      </li>
+      
+      <li>
+        <a href="/talks/#demystifying-dsls-for-better-analysis-and-understanding">Demystifying DSLs for better analysis and understanding</a>
+        <span class="meta">RubyKaigi 2021 · September 2021</span>
+      </li>
+      
+      <li>
+        <a href="/talks/#the-curious-case-of-the-bad-clone">The Curious Case of the Bad Clone</a>
+        <span class="meta">RailsConf 2021 · May 2021</span>
+      </li>
+      
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+</section>
+
+
+
+
+<section class="def-block">
+  <div class="section-head">
+    <h2>
+<span class="kw">def</span>podcasts</h2>
+    <a class="section-link" href="/podcasts/">all podcasts →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      
+      <li>
+        <a href="/podcasts/#episode-34-ufuk-kayserilioglu">Episode 34 - Ufuk Kayserilioglu</a>
+        <span class="meta">Code and the Coding Coders who Code it · April 2024</span>
+      </li>
+      
+      <li>
+        <a href="/podcasts/#railsconf-with-ufuk-kayserilioglu">RailsConf With Ufuk Kayserilioglu</a>
+        <span class="meta">The Ruby on Rails Podcast · March 2024</span>
+      </li>
+      
+      <li>
+        <a href="/podcasts/#railsconf-2024-with-ufuk-kayserilioglu">RailsConf 2024 with Ufuk Kayserilioglu</a>
+        <span class="meta">Remote Ruby · March 2024</span>
+      </li>
+      
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+</section>
+
+
+    </div>
   </main>
 
-  <footer>
-    <p class="copy">
-      <small> © Ufuk Kayserilioglu 2026
-              | Powered by Jekyll and
-              <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="external nofollow noopener">Gradfolio</a>.
-      </small>
-    </p>
-
-    <div class="rounded-social-buttons">
-<a rel="me" title="" class="social-button bluesky" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">
-  <i class="fab fa-bluesky"></i>
-</a><a rel="me" title="" class="social-button mastodon" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">
-  <i class="fab fa-mastodon"></i>
-</a><a rel="me" title="" class="social-button twitter" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-twitter"></i>
-</a><a rel="me" title="" class="social-button github" href="https://www.github.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-github"></i>
-</a><a rel="me" title="" class="social-button linkedin" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="socials">
+<a rel="me" href="https://github.com/paracycle" itemprop="sameAs" target="_blank">github</a><a rel="me" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">mastodon</a><a rel="me" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">bluesky</a><a rel="me" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">twitter</a><a rel="me" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">linkedin</a>
 </div>
 
-
+      <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    });
+  </script>
 
   <!-- Self-hosted Plausible Analytics code -->
 <script defer src="https://analytics.paralaus.com/script.js" data-website-id="fcef8857-4847-4250-ae64-596e0afc3a2f"></script>

@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- Set the theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -11,17 +21,19 @@
 <meta name="generator" content="Jekyll v4.4.1">
 <meta property="og:title" content="Posts">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
-<meta property="og:description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
+<meta name="description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
+<meta property="og:description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
 <link rel="canonical" href="https://ufuk.dev/posts/">
 <meta property="og:url" content="https://ufuk.dev/posts/">
 <meta property="og:site_name" content="Ufuk Kayserilioglu">
+<meta property="og:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="twitter:title" content="Posts">
 <meta name="twitter:site" content="@paracycle">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Engineering Manager - Ruby Infrastructure Team at Shopify","headline":"Posts","url":"https://ufuk.dev/posts/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify","headline":"Posts","image":"https://ufuk.dev/assets/images/og-image.png","url":"https://ufuk.dev/posts/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -31,81 +43,67 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-
-  <!-- MathJax -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     processEscapes: true
-    }
-  });
-</script>
-
-
-  <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
-  <script src="https://kit.fontawesome.com/e96714f58f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="posts">
-  <h1 class="post-headline">Ufuk Kayserilioglu</h1>
-  <h3 class="post-description">Engineering Manager - Ruby Infrastructure Team at Shopify</h3>
-
-  <nav class="scroll">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+      <nav class="site-nav">
   
-    
-    
-    <a href="/" class="">Home</a>
+    <a href="/">home</a>
   
-    
-    
-    <a href="/talks/" class="">Talks</a>
+    <a href="/talks/">talks</a>
   
-    
-    
-    <a href="/podcasts/" class="">Podcasts</a>
+    <a href="/podcasts/">podcasts</a>
   
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◑</button>
 </nav>
 
+    </div>
+  </header>
 
   <main>
-    <div class="article-list">
+    <div class="container">
+      <section class="def-block">
+  <div class="section-head">
+    <h2>
+<span class="kw">def</span>writing</h2>
+    <a class="section-link" href="/archive/">archive →</a>
+  </div>
+  <div class="section-body">
+    <ul class="post-list">
+      
+      <li><p class="excerpt">Nothing to see here, yet :(</p></li>
+      
+    </ul>
+  </div>
+  <p class="section-end">end</p>
+
   
-    <p>Nothing to see here, yet :(</p>
-  
-</div>
+</section>
 
-<!-- pagination -->
-
-
+    </div>
   </main>
 
-  <footer>
-    <p class="copy">
-      <small> © Ufuk Kayserilioglu 2026
-              | Powered by Jekyll and
-              <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="external nofollow noopener">Gradfolio</a>.
-      </small>
-    </p>
-
-    <div class="rounded-social-buttons">
-<a rel="me" title="" class="social-button bluesky" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">
-  <i class="fab fa-bluesky"></i>
-</a><a rel="me" title="" class="social-button mastodon" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">
-  <i class="fab fa-mastodon"></i>
-</a><a rel="me" title="" class="social-button twitter" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-twitter"></i>
-</a><a rel="me" title="" class="social-button github" href="https://www.github.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-github"></i>
-</a><a rel="me" title="" class="social-button linkedin" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="socials">
+<a rel="me" href="https://github.com/paracycle" itemprop="sameAs" target="_blank">github</a><a rel="me" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">mastodon</a><a rel="me" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">bluesky</a><a rel="me" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">twitter</a><a rel="me" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">linkedin</a>
 </div>
 
-
+      <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    });
+  </script>
 
   <!-- Self-hosted Plausible Analytics code -->
 <script defer src="https://analytics.paralaus.com/script.js" data-website-id="fcef8857-4847-4250-ae64-596e0afc3a2f"></script>

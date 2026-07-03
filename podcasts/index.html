@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- Set the theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -11,17 +21,19 @@
 <meta name="generator" content="Jekyll v4.4.1">
 <meta property="og:title" content="Podcasts">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
-<meta property="og:description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
+<meta name="description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
+<meta property="og:description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
 <link rel="canonical" href="https://ufuk.dev/podcasts/">
 <meta property="og:url" content="https://ufuk.dev/podcasts/">
 <meta property="og:site_name" content="Ufuk Kayserilioglu">
+<meta property="og:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="twitter:title" content="Podcasts">
 <meta name="twitter:site" content="@paracycle">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Engineering Manager - Ruby Infrastructure Team at Shopify","headline":"Podcasts","url":"https://ufuk.dev/podcasts/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify","headline":"Podcasts","image":"https://ufuk.dev/assets/images/og-image.png","url":"https://ufuk.dev/podcasts/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -31,365 +43,390 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-
-  <!-- MathJax -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     processEscapes: true
-    }
-  });
-</script>
-
-
-  <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
-  <script src="https://kit.fontawesome.com/e96714f58f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="podcasts">
-  <h1 class="post-headline">Ufuk Kayserilioglu</h1>
-  <h3 class="post-description">Engineering Manager - Ruby Infrastructure Team at Shopify</h3>
-
-  <nav class="scroll">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+      <nav class="site-nav">
   
-    
-    
-    <a href="/" class="">Home</a>
+    <a href="/">home</a>
   
-    
-    
-    <a href="/talks/" class="">Talks</a>
+    <a href="/talks/">talks</a>
   
-    
-    
-    <a href="/podcasts/" class="active">Podcasts</a>
+    <a href="/podcasts/" class="active">podcasts</a>
   
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◑</button>
 </nav>
 
+    </div>
+  </header>
 
   <main>
+    <div class="container">
+      <section class="def-block">
+  <div class="section-head">
+    <h2>
+<span class="kw">def</span>podcasts</h2>
+  </div>
+  <div class="section-body">
     
-<article class="talk">
-    <h2>Episode 34 - Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    
+    
+    <p class="list-marker">2024</p>
+    
+    <article class="entry" id="episode-34-ufuk-kayserilioglu">
+      <h3 class="entry-title">Episode 34 - Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Code and the Coding Coders who Code it
+         · episode 34
+        · <time datetime="2024-04-16T00:00:00+00:00">April 2024</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>I was super excited to finally get Ufuk on the show and he got me SUPER pumped for RailsConf 2024, which is happening next month! If you’ve been waiting to get your ticket, listen to this episode and get your ticket ASAP!</p>
+</div>
+      </details>
       
-        Episode 34 -
+      <p class="entry-links">
+        <a href="https://podcast.drbragg.dev/episodes/episode-34-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      April 2024
-    </time>
-    <h3>
-      Code and the Coding Coders who Code it
-    </h3>
-    <p>I was super excited to finally get Ufuk on the show and he got me SUPER pumped for RailsConf 2024, which is happening next month! If you’ve been waiting to get your ticket, listen to this episode and get your ticket ASAP!</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://podcast.drbragg.dev/episodes/episode-34-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>RailsConf With Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="railsconf-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">RailsConf With Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        The Ruby on Rails Podcast
+         · episode 512
+        · <time datetime="2024-03-27T00:00:00+00:00">March 2024</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>RailsConf is coming up fast! The program committee has released the schedule and keynote speakers. Ufuk Kayserilioglu joins the show to talk about the program and Ruby Central</p>
+</div>
+      </details>
       
-        Episode 512 -
+      <p class="entry-links">
+        <a href="https://www.therubyonrailspodcast.com/512" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      March 2024
-    </time>
-    <h3>
-      The Ruby on Rails Podcast
-    </h3>
-    <p>RailsConf is coming up fast! The program committee has released the schedule and keynote speakers. Ufuk Kayserilioglu joins the show to talk about the program and Ruby Central</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.therubyonrailspodcast.com/512" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>RailsConf 2024 with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="railsconf-2024-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">RailsConf 2024 with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Remote Ruby
+         · episode 262
+        · <time datetime="2024-03-21T00:00:00+00:00">March 2024</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>Today’s episode features a detailed discussion about the upcoming RailsConf 2024, its programming, and significant updates in the Ruby community, particularly regarding  Ruby Central’s contributions. Jason, Chris, and Andrew dive into a conversation with guest, Ufuk Kayserilioglu, Engineering Manager at Shopify’s Ruby Infrastructure Team, who recently joined the board of Ruby Central and co-chairs RailsConf 2024. Ufuk shares insights on the planned enhancements for the conference to make it more practical and focused on Rails.</p>
+</div>
+      </details>
       
-        Episode 262 -
+      <p class="entry-links">
+        <a href="https://www.remoteruby.com/2260490/14733681-railsconf-2024-with-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      March 2024
-    </time>
-    <h3>
-      Remote Ruby
-    </h3>
-    <p>Today’s episode features a detailed discussion about the upcoming RailsConf 2024, its programming, and significant updates in the Ruby community, particularly regarding  Ruby Central’s contributions. Jason, Chris, and Andrew dive into a conversation with guest, Ufuk Kayserilioglu, Engineering Manager at Shopify’s Ruby Infrastructure Team, who recently joined the board of Ruby Central and co-chairs RailsConf 2024. Ufuk shares insights on the planned enhancements for the conference to make it more practical and focused on Rails.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.remoteruby.com/2260490/14733681-railsconf-2024-with-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Why Detroit?! Meet Ufuk, the secret organizer behind Rails Conf 2024</h2>
-    <time datetime="">
-      
-        Episode S2E4 -
-      
-      March 2024
-    </time>
-    <h3>
-      Friendly Show
-    </h3>
-    <p><a href="https://railsconf.org/" rel="external nofollow noopener" target="_blank">RailsConf</a> is happening on 7-9 of May!</p>
+    
+    
+    <article class="entry" id="why-detroit-meet-ufuk-the-secret-organizer-behind-rails-conf-2024">
+      <h3 class="entry-title">Why Detroit?! Meet Ufuk, the secret organizer behind Rails Conf 2024</h3>
+      <p class="entry-meta">
+        Friendly Show
+         · episode S2E4
+        · <time datetime="2024-03-14T00:00:00+00:00">March 2024</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p><a href="https://railsconf.org/" rel="external nofollow noopener" target="_blank">RailsConf</a> is happening on 7-9 of May!</p>
 
 <p>And Ufuk is the lead organizer!
 He recently joined the Ruby Central board of directors.
 He is on the Shopify infrastructure team, working on making Ruby on Rails a better ecosystem 💪</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.friendly.show/2278525/14689994-why-detroit-meet-ufuk-the-secret-organizer-behind-rails-conf-2024" rel="external nofollow noopener" target="_blank">Listen</a>
-    
-    
-      <i class="fas fa-video"></i>
-      <a href="https://www.youtube.com/watch?v=UuKj8mAa1Ok" rel="external nofollow noopener" target="_blank">Watch</a>
-    
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Ruby Mastery and Community Love with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+</div>
+      </details>
       
-        Episode S2E52 -
+      <p class="entry-links">
+        <a href="https://www.friendly.show/2278525/14689994-why-detroit-meet-ufuk-the-secret-organizer-behind-rails-conf-2024" rel="external nofollow noopener" target="_blank">listen</a>
+        <a href="https://www.youtube.com/watch?v=UuKj8mAa1Ok" rel="external nofollow noopener" target="_blank">watch</a>
+      </p>
       
-      November 2023
-    </time>
-    <h3>
-      Ruby for All
-    </h3>
-    <p>In this episode of Ruby for All, Andrew and Julie kick off with their excitement for RubyConf and then introduce their special guest Ufuk Kayserilioglu, an Engineering Manager at Shopify, to discuss his passion for Ruby and his contributions to the Ruby community.  They also touch upon the importance of mastering your choice of programming language and diving into the work of first principle thinking. Ufuk explains the concept of ‘Triple equals’ as his favorite Ruby method and offers valuable insight into the open source community.  The discussions wrap up with Ufuk expressing his anticipation for RubyConf and encourages a more communal and interactive setting for programmers.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.rubyforall.com/s2/52" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>AI and the Democratization of Programming with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <p class="list-marker">2023</p>
+    
+    <article class="entry" id="ruby-mastery-and-community-love-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">Ruby Mastery and Community Love with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Ruby for All
+         · episode S2E52
+        · <time datetime="2023-11-16T00:00:00+00:00">November 2023</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>In this episode of Ruby for All, Andrew and Julie kick off with their excitement for RubyConf and then introduce their special guest Ufuk Kayserilioglu, an Engineering Manager at Shopify, to discuss his passion for Ruby and his contributions to the Ruby community.  They also touch upon the importance of mastering your choice of programming language and diving into the work of first principle thinking. Ufuk explains the concept of ‘Triple equals’ as his favorite Ruby method and offers valuable insight into the open source community.  The discussions wrap up with Ufuk expressing his anticipation for RubyConf and encourages a more communal and interactive setting for programmers.</p>
+</div>
+      </details>
       
-        Episode 183 -
+      <p class="entry-links">
+        <a href="https://www.rubyforall.com/s2/52" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      May 2023
-    </time>
-    <h3>
-      Code with Jason
-    </h3>
-    <p>On today’s episode, Ufuk Kayserilioglu returns for a discussion of what he’s been up to with the Ruby infrastructure team at Shopify, the challenges of parsing Ruby, how AI tools like ChatGPT will change programming, the likelihood of AI replacing programmers, and how AI is democratizing programming.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.codewithjason.com/podcast/12904213-183-ai-and-the-democratization-of-programming-with-ufuk-kayserilioglu/" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Ruby Infrastructure with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="ai-and-the-democratization-of-programming-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">AI and the Democratization of Programming with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Code with Jason
+         · episode 183
+        · <time datetime="2023-05-30T00:00:00+00:00">May 2023</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>On today’s episode, Ufuk Kayserilioglu returns for a discussion of what he’s been up to with the Ruby infrastructure team at Shopify, the challenges of parsing Ruby, how AI tools like ChatGPT will change programming, the likelihood of AI replacing programmers, and how AI is democratizing programming.</p>
+</div>
+      </details>
       
-        Episode 186 -
+      <p class="entry-links">
+        <a href="https://www.codewithjason.com/podcast/12904213-183-ai-and-the-democratization-of-programming-with-ufuk-kayserilioglu/" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      July 2022
-    </time>
-    <h3>
-      Remote Ruby
-    </h3>
-    <p>Joining us today as our special guest is Ufuk Kayserilioglu, who’s the Engineering Manager of the Ruby Infrastructure Team at Shopify. We’ll hear Ufuk’s story about his pathway to programming and Ruby, we learn more about his job and his team at Shopify, where their project ideas come from, and how they’re very close to production workloads running TruffleRuby. Also, Jason fills us in on something he was blown away by that involves Ufuk and his team with YJIT, and there’s a YJIT Benchmarks dashboard that you should check out.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://remoteruby.transistor.fm/186" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Build, Measure, and Learn with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <p class="list-marker">2022</p>
+    
+    <article class="entry" id="ruby-infrastructure-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">Ruby Infrastructure with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Remote Ruby
+         · episode 186
+        · <time datetime="2022-07-01T00:00:00+00:00">July 2022</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>Joining us today as our special guest is Ufuk Kayserilioglu, who’s the Engineering Manager of the Ruby Infrastructure Team at Shopify. We’ll hear Ufuk’s story about his pathway to programming and Ruby, we learn more about his job and his team at Shopify, where their project ideas come from, and how they’re very close to production workloads running TruffleRuby. Also, Jason fills us in on something he was blown away by that involves Ufuk and his team with YJIT, and there’s a YJIT Benchmarks dashboard that you should check out.</p>
+</div>
+      </details>
       
-        Episode 146 -
+      <p class="entry-links">
+        <a href="https://remoteruby.transistor.fm/186" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      May 2022
-    </time>
-    <h3>
-      Code with Jason
-    </h3>
-    <p>In this episode, Ufuk Kayserilioglu and I discuss the Lean Startup methodology and how it relates to the scientific method and the build, measure, learn loop, how to come up with ideas for businesses, sharpening up a business concept with the Lean Canvas, the real reasons people go to conferences, and how to measure success.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.codewithjason.com/podcast/10626614-146-build-measure-and-learn-with-ufuk-kayserilioglu/" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Ruby Loyalty and Engineering Management with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="build-measure-and-learn-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">Build, Measure, and Learn with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Code with Jason
+         · episode 146
+        · <time datetime="2022-05-18T00:00:00+00:00">May 2022</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>In this episode, Ufuk Kayserilioglu and I discuss the Lean Startup methodology and how it relates to the scientific method and the build, measure, learn loop, how to come up with ideas for businesses, sharpening up a business concept with the Lean Canvas, the real reasons people go to conferences, and how to measure success.</p>
+</div>
+      </details>
       
-        Episode 410 -
+      <p class="entry-links">
+        <a href="https://www.codewithjason.com/podcast/10626614-146-build-measure-and-learn-with-ufuk-kayserilioglu/" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      March 2022
-    </time>
-    <h3>
-      The Ruby on Rails Podcast
-    </h3>
-    <p>Ufuk is the Engineering Manager of the Ruby Infrastructure team (Jemma’s team!) at Shopify. After transitioning his career from physics to software development, Ufuk has had the fortune of working with lots of interesting technologies at various levels of the stack. He, Jemma and Brittany chat about management philosophies, why he remains excited about Ruby and what is the ideal role for Shopify in the larger Ruby ecosystem.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.therubyonrailspodcast.com/410" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Ufuk Kayserilioglu, Engineering Manager of the Ruby Infrastructure Team at Shopify</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="ruby-loyalty-and-engineering-management-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">Ruby Loyalty and Engineering Management with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        The Ruby on Rails Podcast
+         · episode 410
+        · <time datetime="2022-03-23T00:00:00+00:00">March 2022</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>Ufuk is the Engineering Manager of the Ruby Infrastructure team (Jemma’s team!) at Shopify. After transitioning his career from physics to software development, Ufuk has had the fortune of working with lots of interesting technologies at various levels of the stack. He, Jemma and Brittany chat about management philosophies, why he remains excited about Ruby and what is the ideal role for Shopify in the larger Ruby ecosystem.</p>
+</div>
+      </details>
       
-        Episode 132 -
+      <p class="entry-links">
+        <a href="https://www.therubyonrailspodcast.com/410" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      February 2022
-    </time>
-    <h3>
-      Code with Jason
-    </h3>
-    <p>In this week’s episode, I’m joined by Ufuk Kayserilioglu for a wide-ranging conversation including Richard Feynman, Ben Franklin, philosophy, and the idea of dauntless curiosity.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://www.codewithjason.com/podcast/10021152-132-ufuk-kayserilioglu-engineering-manager-of-the-ruby-infrastructure-team-at-shopify/" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Rıza Selçuk Saydam ve Ufuk Kayserilioğlu ile Tasarım ve Yazılım Ekibi Yönetme, 1'e 1, Performans Değerlendirmesi ve Terfi</h2>
-    <time datetime="">
+    
+    
+    <article class="entry" id="ufuk-kayserilioglu-engineering-manager-of-the-ruby-infrastructure-team-at-shopify">
+      <h3 class="entry-title">Ufuk Kayserilioglu, Engineering Manager of the Ruby Infrastructure Team at Shopify</h3>
+      <p class="entry-meta">
+        Code with Jason
+         · episode 132
+        · <time datetime="2022-02-08T00:00:00+00:00">February 2022</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>In this week’s episode, I’m joined by Ufuk Kayserilioglu for a wide-ranging conversation including Richard Feynman, Ben Franklin, philosophy, and the idea of dauntless curiosity.</p>
+</div>
+      </details>
       
-        Episode 10 -
+      <p class="entry-links">
+        <a href="https://www.codewithjason.com/podcast/10021152-132-ufuk-kayserilioglu-engineering-manager-of-the-ruby-infrastructure-team-at-shopify/" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      August 2021
-    </time>
-    <h3>
-      Farklı Düşün
-    </h3>
-    <p>Bu bölümde Facebook’ta Design Manager olarak çalışan Rıza Selçuk Saydam ve Shopify’da Engineering Manager olarak çalışan Ufak Kayserilioğlu ile ekip yönetimi, 1’e 1 toplantılar, performans değerlendirmesi ve terfi konuları üzerine sohbet ettik.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://farkli-dusun.simplecast.com/episodes/riza-selcuk-saydam-ve-ufuk-kayserilioglu-ile-muhendislik-ve-tasarim-ekibi-yonetme" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Sorbet with Ufuk Kayserilioglu</h2>
-    <time datetime="">
+    
+    
+    <p class="list-marker">2021</p>
+    
+    <article class="entry" id="rıza-selçuk-saydam-ve-ufuk-kayserilioğlu-ile-tasarım-ve-yazılım-ekibi-yönetme-1-e-1-performans-değerlendirmesi-ve-terfi">
+      <h3 class="entry-title">Rıza Selçuk Saydam ve Ufuk Kayserilioğlu ile Tasarım ve Yazılım Ekibi Yönetme, 1'e 1, Performans Değerlendirmesi ve Terfi</h3>
+      <p class="entry-meta">
+        Farklı Düşün
+         · episode 10
+        · <time datetime="2021-08-15T00:00:00+00:00">August 2021</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>Bu bölümde Facebook’ta Design Manager olarak çalışan Rıza Selçuk Saydam ve Shopify’da Engineering Manager olarak çalışan Ufak Kayserilioğlu ile ekip yönetimi, 1’e 1 toplantılar, performans değerlendirmesi ve terfi konuları üzerine sohbet ettik.</p>
+</div>
+      </details>
       
-        Episode 471 -
+      <p class="entry-links">
+        <a href="https://farkli-dusun.simplecast.com/episodes/riza-selcuk-saydam-ve-ufuk-kayserilioglu-ile-muhendislik-ve-tasarim-ekibi-yonetme" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
       
-      September 2020
-    </time>
-    <h3>
-      Ruby Rouges
-    </h3>
-    <p>In this episode of Ruby Rogues, we talk with Ufuk about how Shopify made the transition to using Sorbet and about the benefits they felt they received from implementing it. Ufuk also reveals a little bit about how Shopify transitioned to fully remote and about how that will be the default moving forward.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://topenddevs.com/podcasts/ruby-rogues/episodes/rr-471-sorbet-with-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">Listen</a>
+    </article>
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Teknik: Shopify nasıl yazılım geliştiriyor?</h2>
-    <time datetime="">
+    
+    
+    <p class="list-marker">2020</p>
+    
+    <article class="entry" id="sorbet-with-ufuk-kayserilioglu">
+      <h3 class="entry-title">Sorbet with Ufuk Kayserilioglu</h3>
+      <p class="entry-meta">
+        Ruby Rouges
+         · episode 471
+        · <time datetime="2020-09-22T00:00:00+00:00">September 2020</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>In this episode of Ruby Rogues, we talk with Ufuk about how Shopify made the transition to using Sorbet and about the benefits they felt they received from implementing it. Ufuk also reveals a little bit about how Shopify transitioned to fully remote and about how that will be the default moving forward.</p>
+</div>
+      </details>
       
-      July 2019
-    </time>
-    <h3>
-      Üretim Bandı
-    </h3>
-    <p>Bu hafta Shopify’dan Ufuk Kayserilioğlu ile dolu dolu bir bölüm kaydettik. Shopify gibi büyük bir teknoloji firmasının yazılım kültürünü, teknik konulara yaklaşımlarını ve sorunlara ürettiği çözümleri Ufuk’tan dinledik. Ayrıca Ufuk bizlere Shopify’ın uzaktan çalışma kültüründen ve açık kaynak projelere yaklaşımından ve en önemlisi bu yazılımları geliştiren topluluklara verdiği desteklerden bahsetti.</p>
-
-    <p class="footer">
-    
-      <i class="fas fa-microphone"></i>
-      <a href="https://uretimbandi.com/shopify-nasil-yazilim-gelistiriyor/" rel="external nofollow noopener" target="_blank">Listen</a>
+      <p class="entry-links">
+        <a href="https://topenddevs.com/podcasts/ruby-rogues/episodes/rr-471-sorbet-with-ufuk-kayserilioglu" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
+      
+    </article>
     
     
-    </p>
-  </article>
+    
+    
+    <p class="list-marker">2019</p>
+    
+    <article class="entry" id="teknik-shopify-nasıl-yazılım-geliştiriyor">
+      <h3 class="entry-title">Teknik: Shopify nasıl yazılım geliştiriyor?</h3>
+      <p class="entry-meta">
+        Üretim Bandı
+        
+        · <time datetime="2019-07-18T00:00:00+00:00">July 2019</time>
+      </p>
+      <details class="entry-abstract">
+        <summary>show notes</summary>
+        <div class="entry-content">
+<p>Bu hafta Shopify’dan Ufuk Kayserilioğlu ile dolu dolu bir bölüm kaydettik. Shopify gibi büyük bir teknoloji firmasının yazılım kültürünü, teknik konulara yaklaşımlarını ve sorunlara ürettiği çözümleri Ufuk’tan dinledik. Ayrıca Ufuk bizlere Shopify’ın uzaktan çalışma kültüründen ve açık kaynak projelere yaklaşımından ve en önemlisi bu yazılımları geliştiren topluluklara verdiği desteklerden bahsetti.</p>
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://uretimbandi.com/shopify-nasil-yazilim-gelistiriyor/" rel="external nofollow noopener" target="_blank">listen</a>
+        
+      </p>
+      
+    </article>
+    
+    
+  </div>
+  <p class="section-end">end</p>
+</section>
 
-
+    </div>
   </main>
 
-  <footer>
-    <p class="copy">
-      <small> © Ufuk Kayserilioglu 2026
-              | Powered by Jekyll and
-              <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="external nofollow noopener">Gradfolio</a>.
-      </small>
-    </p>
-
-    <div class="rounded-social-buttons">
-<a rel="me" title="" class="social-button bluesky" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">
-  <i class="fab fa-bluesky"></i>
-</a><a rel="me" title="" class="social-button mastodon" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">
-  <i class="fab fa-mastodon"></i>
-</a><a rel="me" title="" class="social-button twitter" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-twitter"></i>
-</a><a rel="me" title="" class="social-button github" href="https://www.github.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-github"></i>
-</a><a rel="me" title="" class="social-button linkedin" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="socials">
+<a rel="me" href="https://github.com/paracycle" itemprop="sameAs" target="_blank">github</a><a rel="me" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">mastodon</a><a rel="me" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">bluesky</a><a rel="me" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">twitter</a><a rel="me" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">linkedin</a>
 </div>
 
-
+      <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    });
+  </script>
 
   <!-- Self-hosted Plausible Analytics code -->
 <script defer src="https://analytics.paralaus.com/script.js" data-website-id="fcef8857-4847-4250-ae64-596e0afc3a2f"></script>

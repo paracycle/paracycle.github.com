@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- Set the theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    })();
+  </script>
+
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -11,17 +21,19 @@
 <meta name="generator" content="Jekyll v4.4.1">
 <meta property="og:title" content="Talks">
 <meta property="og:locale" content="en_US">
-<meta name="description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
-<meta property="og:description" content="Engineering Manager - Ruby Infrastructure Team at Shopify">
+<meta name="description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
+<meta property="og:description" content="Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify">
 <link rel="canonical" href="https://ufuk.dev/talks/">
 <meta property="og:url" content="https://ufuk.dev/talks/">
 <meta property="og:site_name" content="Ufuk Kayserilioglu">
+<meta property="og:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="https://ufuk.dev/assets/images/og-image.png">
 <meta property="twitter:title" content="Talks">
 <meta name="twitter:site" content="@paracycle">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Engineering Manager - Ruby Infrastructure Team at Shopify","headline":"Talks","url":"https://ufuk.dev/talks/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Senior Staff Engineer - Ruby and Rails Infrastructure at Shopify","headline":"Talks","image":"https://ufuk.dev/assets/images/og-image.png","url":"https://ufuk.dev/talks/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -31,186 +43,208 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-
-  <!-- MathJax -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     processEscapes: true
-    }
-  });
-</script>
-
-
-  <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
-  <script src="https://kit.fontawesome.com/e96714f58f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="talks">
-  <h1 class="post-headline">Ufuk Kayserilioglu</h1>
-  <h3 class="post-description">Engineering Manager - Ruby Infrastructure Team at Shopify</h3>
-
-  <nav class="scroll">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/"><span class="tilde">~</span>/ufuk.dev<span class="cursor"></span></a>
+      <nav class="site-nav">
   
-    
-    
-    <a href="/" class="">Home</a>
+    <a href="/">home</a>
   
-    
-    
-    <a href="/talks/" class="active">Talks</a>
+    <a href="/talks/" class="active">talks</a>
   
-    
-    
-    <a href="/podcasts/" class="">Podcasts</a>
+    <a href="/podcasts/">podcasts</a>
   
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">◑</button>
 </nav>
 
+    </div>
+  </header>
 
   <main>
+    <div class="container">
+      <section class="def-block">
+  <div class="section-head">
+    <h2>
+<span class="kw">def</span>talks</h2>
+  </div>
+  <div class="section-body">
     
-<article class="talk">
-    <h2>Gradual Typing In Ruby - A Three Year Retrospective</h2>
-    <time datetime="2021-11-09T00:00:00+00:00">November 2021</time>
-    <h3>RubyConf 2021</h3>
-    <p>We began adopting gradual typing on Shopify’s giant monolith almost 3 years ago. Today, we are running the monolith with great type coverage and even see some internal teams commit to stricter typing in their components.</p>
+    
+    
+    
+    
+    <p class="list-marker">2021</p>
+    
+    <article class="entry" id="gradual-typing-in-ruby-a-three-year-retrospective">
+      <h3 class="entry-title">Gradual Typing In Ruby - A Three Year Retrospective</h3>
+      <p class="entry-meta">RubyConf 2021 · <time datetime="2021-11-09T00:00:00+00:00">November 2021</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>We began adopting gradual typing on Shopify’s giant monolith almost 3 years ago. Today, we are running the monolith with great type coverage and even see some internal teams commit to stricter typing in their components.</p>
 
 <p>The road to get here was not easy, though. We had to work with our developers to solve the right problems at the right levels of abstraction to ensure the adoption was healthy. This talk will go over some of the challenges and some of our wins along the way. It will also help you decide if gradual typing might work for your codebase and your team, as well.</p>
-
-    <p class="footer">
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://youtu.be/a3jfpSmikdg" rel="external nofollow noopener" target="_blank">video</a>
+        <a href="https://speakerdeck.com/ufuk/adopting-sorbet-at-scale" rel="external nofollow noopener" target="_blank">slides</a>
+        
+      </p>
+      
+    </article>
     
-      <i class="fas fa-video"></i> <a href="https://youtu.be/a3jfpSmikdg" rel="external nofollow noopener" target="_blank">Video</a>
     
     
-      <i class="fas fa-person-chalkboard"></i> <a href="https://speakerdeck.com/ufuk/adopting-sorbet-at-scale" rel="external nofollow noopener" target="_blank">Slides</a>
     
-    
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Demystifying DSLs for better analysis and understanding</h2>
-    <time datetime="2021-09-09T00:00:00+00:00">September 2021</time>
-    <h3>RubyKaigi 2021</h3>
-    <p>The ability to create DSLs is one of the biggest strengths of Ruby. They allow us to write easy to use interfaces and reduce the need for boilerplate code. On the flip side, DSLs encapsulate complex logic which makes it hard for developers to understand what’s happening under the covers.</p>
+    <article class="entry" id="demystifying-dsls-for-better-analysis-and-understanding">
+      <h3 class="entry-title">Demystifying DSLs for better analysis and understanding</h3>
+      <p class="entry-meta">RubyKaigi 2021 · <time datetime="2021-09-09T00:00:00+00:00">September 2021</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>The ability to create DSLs is one of the biggest strengths of Ruby. They allow us to write easy to use interfaces and reduce the need for boilerplate code. On the flip side, DSLs encapsulate complex logic which makes it hard for developers to understand what’s happening under the covers.</p>
 
 <p>Surfacing DSLs as static artifacts makes working with them much easier. Generating RBI/RBS files that declare the methods which are dynamically created at runtime, allows static analyzers like Sorbet or Steep to work with DSLs. This also allows for better developers tooling and as some kind of “DSL linter”.</p>
-
-    <p class="footer">
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://youtu.be/Ms7_PrryvMM" rel="external nofollow noopener" target="_blank">video</a>
+        <a href="https://speakerdeck.com/ufuk/demystifying-dsls-for-better-analysis-and-understanding" rel="external nofollow noopener" target="_blank">slides</a>
+        
+      </p>
+      
+    </article>
     
-      <i class="fas fa-video"></i> <a href="https://youtu.be/Ms7_PrryvMM" rel="external nofollow noopener" target="_blank">Video</a>
     
     
-      <i class="fas fa-person-chalkboard"></i> <a href="https://speakerdeck.com/ufuk/demystifying-dsls-for-better-analysis-and-understanding" rel="external nofollow noopener" target="_blank">Slides</a>
     
-    
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>The Curious Case of the Bad Clone</h2>
-    <time datetime="2021-05-19T00:00:00+00:00">May 2021</time>
-    <h3>RailsConf 2021</h3>
-    <p>On Sept 4th 2020, I got pinged on a revert PR to fix a 150% slowdown on the Shopify monolith. It was a two-line change reverting the addition of a Sorbet signature on a Shop method, implicating Sorbet as the suspect.</p>
+    <article class="entry" id="the-curious-case-of-the-bad-clone">
+      <h3 class="entry-title">The Curious Case of the Bad Clone</h3>
+      <p class="entry-meta">RailsConf 2021 · <time datetime="2021-05-19T00:00:00+00:00">May 2021</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>On Sept 4th 2020, I got pinged on a revert PR to fix a 150% slowdown on the Shopify monolith. It was a two-line change reverting the addition of a Sorbet signature on a Shop method, implicating Sorbet as the suspect.</p>
 
 <p>That was the start of a journey that took me through a deeper understanding of the Sorbet, Rails and Ruby codebases. The fix is in Ruby 3.0 and I can sleep better now.</p>
 
 <p>This talk will take you on that journey with me. Along the way, you will find tools and tricks that you can use for debugging similar problems. We will also delve into some nuances of Ruby, which is always fun.</p>
-
-    <p class="footer">
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://youtu.be/ok45gtFuMO8" rel="external nofollow noopener" target="_blank">video</a>
+        
+        
+      </p>
+      
+    </article>
     
-      <i class="fas fa-video"></i> <a href="https://youtu.be/ok45gtFuMO8" rel="external nofollow noopener" target="_blank">Video</a>
     
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Reflecting on Ruby Reflection for Rendering RBIs</h2>
-    <time datetime="2020-09-04T00:00:00+00:00">September 2020</time>
-    <h3>RubyKaigi 2020</h3>
-    <p>As part of our adoption process of Sorbet at Shopify, we needed an automated way to teach Sorbet about our ~400 gem dependencies. We decided to tackle this problem by generating interface files (RBI) for each gem via runtime reflection.</p>
+    <p class="list-marker">2020</p>
+    
+    <article class="entry" id="reflecting-on-ruby-reflection-for-rendering-rbis">
+      <h3 class="entry-title">Reflecting on Ruby Reflection for Rendering RBIs</h3>
+      <p class="entry-meta">RubyKaigi 2020 · <time datetime="2020-09-04T00:00:00+00:00">September 2020</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>As part of our adoption process of Sorbet at Shopify, we needed an automated way to teach Sorbet about our ~400 gem dependencies. We decided to tackle this problem by generating interface files (RBI) for each gem via runtime reflection.</p>
 
 <p>However, this turns out to not be as simple as it sounds; the flexible nature of Ruby allows gem authors to do many wild things that make this Hard. Come and hear about all the lessons that we learnt about runtime reflection in Ruby while building <code class="language-plaintext highlighter-rouge">tapioca</code>.</p>
-
-    <p class="footer">
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://youtu.be/OJRQAn6BfpE" rel="external nofollow noopener" target="_blank">video</a>
+        
+        
+      </p>
+      
+    </article>
     
-      <i class="fas fa-video"></i> <a href="https://youtu.be/OJRQAn6BfpE" rel="external nofollow noopener" target="_blank">Video</a>
     
     
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Peeling Away the Layers of the Network Stack</h2>
-    <time datetime="2020-05-05T00:00:00+00:00">May 2020</time>
-    <h3>RailsConf 2020</h3>
-    <p>As Rails developers, we depend on network protocols to ensure the products we build are available and accessible to our users. Despite this, many of us are poorly aware of how the layers of the network stack actually work, or why they are there.</p>
+    <article class="entry" id="peeling-away-the-layers-of-the-network-stack">
+      <h3 class="entry-title">Peeling Away the Layers of the Network Stack</h3>
+      <p class="entry-meta">RailsConf 2020 · <time datetime="2020-05-05T00:00:00+00:00">May 2020</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>As Rails developers, we depend on network protocols to ensure the products we build are available and accessible to our users. Despite this, many of us are poorly aware of how the layers of the network stack actually work, or why they are there.</p>
 
 <p>Understanding the things that happen between physical signals on the wire and your Rails application will help you hone your craft and level you up. Fortunately, the basic concepts of network protocols are easy to grasp, with a little guidance. So let’s walk together through these concepts, and peel away the layers of the network stack one by one.</p>
-
-    <p class="footer">
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://youtu.be/xPJgSca6TJc" rel="external nofollow noopener" target="_blank">video</a>
+        
+        <a href="https://peelingawaythelayers.net" rel="external nofollow noopener" target="_blank">site</a>
+      </p>
+      
+    </article>
     
-      <i class="fas fa-video"></i> <a href="https://youtu.be/xPJgSca6TJc" rel="external nofollow noopener" target="_blank">Video</a>
     
     
     
-      <i class="fas fa-globe"></i> <a href="https://peelingawaythelayers.net" rel="external nofollow noopener" target="_blank">Site</a>
+    <p class="list-marker">2019</p>
     
-    </p>
-  </article>
-
-<article class="talk">
-    <h2>Adopting Sorbet at Scale</h2>
-    <time datetime="2019-11-19T00:00:00+00:00">November 2019</time>
-    <h3>RubyConf 2019</h3>
-    <p>Shopify is a platform used by 800K merchants generating 12B$ revenue per year, serving 80K requests per second. Our core monolith is a 21K file Ruby on Rails application modified by 800 PRs per day. At this scale, we’re always looking out for tools that improve our confidence in the code that we write and maintain.</p>
+    <article class="entry" id="adopting-sorbet-at-scale">
+      <h3 class="entry-title">Adopting Sorbet at Scale</h3>
+      <p class="entry-meta">RubyConf 2019 · <time datetime="2019-11-19T00:00:00+00:00">November 2019</time></p>
+      <details class="entry-abstract">
+        <summary>abstract</summary>
+        <div class="entry-content">
+<p>Shopify is a platform used by 800K merchants generating 12B$ revenue per year, serving 80K requests per second. Our core monolith is a 21K file Ruby on Rails application modified by 800 PRs per day. At this scale, we’re always looking out for tools that improve our confidence in the code that we write and maintain.</p>
 
 <p>In this talk, we’ll explain how we adopted Sorbet to leverage static typing in our Ruby codebase. We’ll talk about our journey, the challenges we faced and how we overcame them. Based on this experience, you’ll get a better understanding of how you can benefit from Sorbet, too.</p>
+</div>
+      </details>
+      
+      <p class="entry-links">
+        <a href="https://www.youtube.com/watch?v=v9oYeSZGkUw&amp;list=PLE7tQUdRKcyZDE8nFrKaqkpd-XK4huygU&amp;index=15&amp;t=0s" rel="external nofollow noopener" target="_blank">video</a>
+        <a href="https://speakerdeck.com/ufuk/adopting-sorbet-at-scale" rel="external nofollow noopener" target="_blank">slides</a>
+        
+      </p>
+      
+    </article>
+    
+    
+  </div>
+  <p class="section-end">end</p>
+</section>
 
-    <p class="footer">
-    
-      <i class="fas fa-video"></i> <a href="https://www.youtube.com/watch?v=v9oYeSZGkUw&amp;list=PLE7tQUdRKcyZDE8nFrKaqkpd-XK4huygU&amp;index=15&amp;t=0s" rel="external nofollow noopener" target="_blank">Video</a>
-    
-    
-      <i class="fas fa-person-chalkboard"></i> <a href="https://speakerdeck.com/ufuk/adopting-sorbet-at-scale" rel="external nofollow noopener" target="_blank">Slides</a>
-    
-    
-    </p>
-  </article>
-
-
+    </div>
   </main>
 
-  <footer>
-    <p class="copy">
-      <small> © Ufuk Kayserilioglu 2026
-              | Powered by Jekyll and
-              <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="external nofollow noopener">Gradfolio</a>.
-      </small>
-    </p>
-
-    <div class="rounded-social-buttons">
-<a rel="me" title="" class="social-button bluesky" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">
-  <i class="fab fa-bluesky"></i>
-</a><a rel="me" title="" class="social-button mastodon" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">
-  <i class="fab fa-mastodon"></i>
-</a><a rel="me" title="" class="social-button twitter" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-twitter"></i>
-</a><a rel="me" title="" class="social-button github" href="https://www.github.com/paracycle" itemprop="sameAs" target="_blank">
-  <i class="fab fa-github"></i>
-</a><a rel="me" title="" class="social-button linkedin" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="socials">
+<a rel="me" href="https://github.com/paracycle" itemprop="sameAs" target="_blank">github</a><a rel="me" href="https://ruby.social/@ufuk" itemprop="sameAs" target="_blank">mastodon</a><a rel="me" href="https://bsky.app/profile/ufuk.dev" itemprop="sameAs" target="_blank">bluesky</a><a rel="me" href="https://www.twitter.com/paracycle" itemprop="sameAs" target="_blank">twitter</a><a rel="me" href="https://www.linkedin.com/in/ufukkayserilioglu" itemprop="sameAs" target="_blank">linkedin</a>
 </div>
 
-
+      <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    });
+  </script>
 
   <!-- Self-hosted Plausible Analytics code -->
 <script defer src="https://analytics.paralaus.com/script.js" data-website-id="fcef8857-4847-4250-ae64-596e0afc3a2f"></script>
