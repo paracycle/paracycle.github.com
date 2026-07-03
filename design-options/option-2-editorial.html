@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ufuk Kayserilioglu — Option 2: Editorial Minimal</title>
+<style>
+  :root {
+    --bg: #fffdf9;
+    --bg-raised: #f6f3ec;
+    --text: #1a1a18;
+    --text-muted: #6e6a61;
+    --accent: #e5484d;
+    --accent-soft: rgba(229, 72, 77, 0.08);
+    --border: #e8e4da;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #141413;
+    --bg-raised: #1e1e1c;
+    --text: #ebe9e4;
+    --text-muted: #9b978d;
+    --accent: #ff6369;
+    --accent-soft: rgba(255, 99, 105, 0.1);
+    --border: #2a2a27;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.75;
+    font-size: 1.0625rem;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .container { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  a { color: var(--text); }
+  main a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  main a:hover { color: var(--accent); }
+
+  /* ── Header ─────────────────────────── */
+  header { padding: 2rem 0; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .site-title {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .site-title span { color: var(--accent); }
+
+  nav { display: flex; gap: 1.5rem; align-items: center; }
+  nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+  }
+  nav a:hover, nav a.active { color: var(--text); }
+  nav a.active {
+    box-shadow: inset 0 -2px 0 var(--accent);
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    padding: 0.25rem;
+    line-height: 1;
+  }
+  .theme-toggle:hover { color: var(--text); }
+
+  /* ── Hero ───────────────────────────── */
+  .hero { padding: 5rem 0 4rem; }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.25rem, 6vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin-bottom: 1.75rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--text-muted);
+  }
+  .hero p { margin-bottom: 1.1rem; color: var(--text); }
+  .hero .lede { font-size: 1.15rem; }
+
+  /* ── Sections ───────────────────────── */
+  section { padding: 3rem 0; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .section-head a {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .section-head a:hover { color: var(--accent); }
+
+  .post-list { list-style: none; }
+  .post-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .post-list li:last-child { border-bottom: none; }
+  .post-list a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .post-list a:hover { color: var(--accent); }
+  .post-list time, .post-list .meta {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Footer ─────────────────────────── */
+  footer {
+    margin-top: 3rem;
+    padding: 2.5rem 0 3.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .socials { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .socials a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .socials a:hover { color: var(--accent); }
+  .footer-note { color: var(--text-muted); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="site-title" href="/">ufuk<span>.</span>dev</a>
+    <nav>
+      <a href="/" class="active">Home</a>
+      <a href="/talks/">Talks</a>
+      <a href="/podcasts/">Podcasts</a>
+      <a href="/posts/">Posts</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">◑</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero">
+      <p class="kicker">// Engineering Manager, Ruby Infrastructure @ Shopify</p>
+      <h1>Ufuk Kayserilioglu <em>— physicist turned developer turned manager.</em></h1>
+      <p class="lede">Hi there! 👋 Nice to meet you.</p>
+      <p>I've been in the software industry for over 20 years, working with technologies across the full stack. My team at <a href="https://shopify.com">Shopify</a> works on making Ruby thrive — from <a href="https://speed.yjit.org">YJIT</a> to object shapes to developer tooling.</p>
+      <p>Since December 2023, I'm also on the Board of <a href="https://rubycentral.org">Ruby Central</a>, helping with its OSS and conference efforts.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Writing</h2>
+        <a href="/posts/">All posts →</a>
+      </div>
+      <ul class="post-list">
+        <li>
+          <a href="#">The surprising cost of method_missing in production Ruby</a>
+          <time>March 12, 2024</time>
+        </li>
+        <li>
+          <a href="#">Object shapes, one year later</a>
+          <time>January 28, 2024</time>
+        </li>
+        <li>
+          <a href="#">Why we invest in developer tooling at Shopify</a>
+          <time>November 5, 2023</time>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Speaking</h2>
+        <a href="/talks/">All talks →</a>
+      </div>
+      <ul class="post-list">
+        <li>
+          <a href="#">The Secret Life of Ruby Objects</a>
+          <span class="meta">RubyConf 2023 · San Diego</span>
+        </li>
+        <li>
+          <a href="#">Adaptive Ruby: Types and Tooling</a>
+          <span class="meta">RubyKaigi 2023 · Matsumoto</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="socials">
+      <a href="https://github.com/paracycle">GitHub</a>
+      <a href="https://ruby.social/@ufuk">Mastodon</a>
+      <a href="https://bsky.app/profile/ufuk.dev">Bluesky</a>
+      <a href="https://twitter.com/paracycle">Twitter</a>
+      <a href="https://linkedin.com/in/ufukkayserilioglu">LinkedIn</a>
+    </div>
+    <p class="footer-note">© 2026 Ufuk Kayserilioglu</p>
+  </div>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const stored = localStorage.getItem("theme");
+  if (stored) root.dataset.theme = stored;
+  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) root.dataset.theme = "dark";
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>
+</body>
+</html>
