@@ -17,14 +17,16 @@ The theme is "terminal-flavored editorial": proportional sans for all prose
 and titles, monospace reserved strictly for terminal/code-flavored chrome
 (header, nav, prompts, `def`/`end` markers, dates, meta lines, footer
 links). Do not let mono creep into prose or headings. Single accent color
-is Ruby red; all colors/fonts are CSS custom properties in
-`assets/css/_sass/theme.scss` (`:root` = light, `[data-theme="dark"]` =
-dark) — components must only use `var(--*)`, never hardcoded values.
+is Ruby red; all colors/fonts are CSS custom properties in the tokens
+section at the top of `assets/css/main.css` (`:root` = light,
+`[data-theme="dark"]` = dark) — components must only use `var(--*)`, never
+hardcoded values. The stylesheet is plain CSS with no preprocessor — keep
+it that way; selectors are written flat (no nesting).
 
 Structural motifs, use them for new sections/pages:
 
 - Section = `def <name>` … `end` block (`.def-block` / `.section-head` /
-  `.section-body` / `.section-end` in `listing.scss`)
+  `.section-body` / `.section-end` in the listing section of `main.css`)
 - List entries = cards (`.entry`), grouped under `# <year>` markers
   (`.list-marker`), long text collapsed in `<details class="entry-abstract">`
 - Bracket-style mono links: `[video]`, `[slides]` (`.entry-links`)

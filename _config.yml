@@ -56,10 +56,6 @@ collections:
     output: false
     permalink: /podcasts/:path/
 
-sass:
-  sass_dir: /assets/css/_sass
-  style: compressed
-
 include:
   - _pages
   - assets/images

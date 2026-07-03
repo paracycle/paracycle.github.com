@@ -30,14 +30,16 @@ that the home page deep-links to.
 
 ## Theme
 
-All design tokens (colors, fonts, light/dark palettes) live in
-`assets/css/_sass/theme.scss` as CSS custom properties; components only use
-`var(--*)`. Light/dark mode follows `prefers-color-scheme`, can be toggled
-from the header, and persists via `localStorage`.
+The stylesheet is plain CSS — no preprocessor, no build step:
+`assets/css/main.css` is served as-is. All design tokens (colors, fonts,
+light/dark palettes) live in the tokens section at the top as CSS custom
+properties; components only use `var(--*)`. Light/dark mode follows
+`prefers-color-scheme`, can be toggled from the header, and persists via
+`localStorage`.
 
-Partials: `theme` (tokens) · `base` · `chrome` (header/nav/footer) · `home`
-(hero) · `listing` (def…end blocks, cards) · `article` (post prose) ·
-`monokai` (code highlighting).
+Sections: tokens · base · chrome (header/nav/footer) · home (hero) ·
+listing (def…end blocks, cards) · article (post prose) · syntax
+(code highlighting).
 
 ## Open Graph image
 
